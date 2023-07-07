@@ -41,11 +41,10 @@ def RunLast(m,x,jj):
     while z < len(x):
         #print(int(x[z][jj[z]]))
         MaxIt += int(x[z][jj[z]]) ** 2
-        MaxItIs.append(int(x[z][jj[z]]))
+        #MaxItIs.append(int(x[z][jj[z]]))
         z += 1
     #print("         ")
-    MaxItIs.append(MaxIt % m)
-    return MaxItIs
+    return MaxIt % m
 
 def MaximizeIt3(k,m,x):
     jj=[0] * len(x)
@@ -58,10 +57,7 @@ def MaximizeIt3(k,m,x):
 
     while v-1:
         while jj[v]<len(x[v]):
-            nel=RunLast(m, x, jj)
-            if nel[-1]>n:
-                n=nel[-1]
-                nmax=nel
+            n=max(n,RunLast(m, x, jj))
             jj[v] += 1
             k+=1
         # jj[v]=0
